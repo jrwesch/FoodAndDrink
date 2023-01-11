@@ -79,6 +79,13 @@ h2 {
     color: black;
     width: 98%;
     margin: 1%;
+    padding-left: 2%;
+}
+
+.button-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* ************** footer section styling ************** */

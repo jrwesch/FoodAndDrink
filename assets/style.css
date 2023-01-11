@@ -87,6 +87,12 @@ h2 {
     justify-content: center;
     padding-left: 1%;
     padding-right: 1%;
+    padding-bottom: 2%;
+}
+
+input {
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 /* ************** footer section styling ************** */

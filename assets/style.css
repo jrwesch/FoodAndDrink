@@ -25,6 +25,7 @@ h1 {
 
 header p {
     font-size: 2em;
+    font-weight: bold;
     white-space: nowrap;
     padding-top: 36px;
     color: #34ff78;
@@ -77,8 +78,6 @@ h2 {
     font-size: 1.5em;
     font-weight: bolder;
     color: black;
-    width: 98%;
-    margin: 1%;
     padding-left: 2%;
 }
 
@@ -86,6 +85,8 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding-left: 1%;
+    padding-right: 1%;
 }
 
 /* ************** footer section styling ************** */

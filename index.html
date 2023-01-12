@@ -17,36 +17,65 @@
     </header>
 
     <main>
-        <div class="outer-container ">
+        <div class="outer-container">
             <div class="inner-container">
                 <h2>Food</h2>
                 <div class="search">
                   <p>Whats in your fridge?</p>
-                  <form id="form" class="button-area">
-                    <button class="button is-rounded is-black is-small">Beef</button>
-                    <button class="button is-rounded is-black is-small">Chicken</button>
-                    <button class="button is-rounded is-black is-small">Fish</button>
-                    <button class="button is-rounded is-black is-small">Flour</button>
-                    <button class="button is-rounded is-black is-small">Butter</button>
-                    <button class="button is-rounded is-black is-small">Pasta</button>
-                    <button class="button is-rounded is-black is-small">Rice</button>
-                    <button class="button is-rounded is-black is-small">Eggs</button>
-                    <button class="button is-rounded is-black is-small">Pork</button>
-                    <button class="button is-rounded is-black is-small">Cheese</button>
-                    <button class="button is-rounded is-black is-small">Milk</button>
-                    <button class="button is-rounded is-black is-small">Turkey</button>
-                    <button class="button is-rounded is-black is-small">Garlic</button>
-                    <button class="button is-rounded is-black is-small">Shrimp</button>
-                    <button class="button is-rounded is-black is-small">Bacon</button>
-                    <button class="button is-rounded is-black is-small">Apple</button>
-                    <button class="button is-rounded is-black is-small">Orange</button>
-                    <button class="button is-rounded is-black is-small">Onion</button>
-                    <button class="button is-rounded is-black is-small">Broccoli</button>
-                    <input class="button is-rounded is-black is-small" type="checkbox" value="Mushrooms">
-                    <input class="button is-rounded has-background-primary has-text-black" type="submit" value="Submit">
-                  </form>
+                  <div class="button-area">
+                    <form id="form" class="box">
+                      <label class="checkbox"><input type="checkbox">Beef</label>
+                      <label class="checkbox"><input type="checkbox">Chicken</label>
+                      <label class="checkbox"><input type="checkbox">Fish</label>
+                      <label class="checkbox"><input type="checkbox">Beef</label>
+                      <label class="checkbox"><input type="checkbox">Turkey</label>
+                      <label class="checkbox"><input type="checkbox">Shrimp</label>
+                      <label class="checkbox"><input type="checkbox">Pork</label>
+                      <label class="checkbox"><input type="checkbox">Eggs</label>
+                      <label class="checkbox"><input type="checkbox">Bacon</label>
+                      <label class="checkbox"><input type="checkbox">Butter</label>
+                      <label class="checkbox"><input type="checkbox">Milk</label>
+                      <label class="checkbox"><input type="checkbox">Pasta</label>
+                      <label class="checkbox"><input type="checkbox">Rice</label>
+                      <label class="checkbox"><input type="checkbox">Cheese</label>
+                      <label class="checkbox"><input type="checkbox">Garlic</label>
+                      <label class="checkbox"><input type="checkbox">Onion</label>
+                      <label class="checkbox"><input type="checkbox">Broccoli</label>
+                      <label class="checkbox"><input type="checkbox">Mushrooms</label>
+                      <label class="checkbox"><input type="checkbox">Apples</label>
+                      <label class="checkbox"><input type="checkbox">Oranges</label>
+                      <input class="button is-rounded has-background-primary has-text-black" type="submit" value="Submit">
+                    </form>
+                  </div>
+
+                    <!--Results for Food-->
+                  <div class="columns" id="results-list">
+                    <div class="column is-one-third">
+                  <table class="table">
+                    <thead>
+                      <th><abbr title="Position">#</abbr></th>
+                        <th>Recipes</th>
+                    </thead>
+
+                    <tbody>  
+                      <td>1</td>
+                    </tbody>
+                  </table>
                 </div>
+
+                <div class="column">
+                  <div class="box">
+                  </div>
+                </div>
+                </div>
+                </div>
+          
             </div>
+
+
+
+
+
             <div class="inner-container">
                 <h2>Drink</h2>
                 <div class="search">
@@ -73,6 +102,7 @@
                     <button class="button is-rounded is-black is-small">Cola</button>
                     <button class="button is-rounded is-black is-small">Apple Juice</button>
                     <input class="button is-rounded has-background-primary has-text-black" type="submit" value="Submit">
+
                   </form> -->
                 
                 <div class="select is-multiple">
@@ -90,6 +120,28 @@
                       <option value="red-wine" >Red Wine</option>
                       <option value="orange-juice" >Orange Juice</option>
                     </select>
+
+                  </form>
+
+                  <!--Results for Drinks-->
+                  <div class="columns" id="results-list">
+                    <div class="column is-one-third">
+                  <table class="table">
+                    <thead>
+                      <th><abbr title="Position">#</abbr></th>
+                        <th>Recipes</th>
+                    </thead>
+
+                    <tbody>  
+                       <td>1</td>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="column"></div>
+                </div>
+                </div>
+
                 </div>
                 <button class="button" id="ingredientButton">Select</button>
             </div>

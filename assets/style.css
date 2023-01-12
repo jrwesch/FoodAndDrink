@@ -57,6 +57,12 @@ main {
     background-color: #ffdd00;
 }
 
+#results-list {
+    margin-left: 2%;
+    margin-right: 5%;
+    
+}
+
 h2 {
     font-size: 2em;
     font-weight: bold;

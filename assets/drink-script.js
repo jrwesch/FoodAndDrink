@@ -3,6 +3,8 @@ var drinkIngredient = document.getElementById('drink-ingredient');
 var foodSelect = document.getElementById('food-button');
 var drinkSelect = document.getElementById('drink-button');
 
+var apiKey = 9d3356672b70422fa17b1053440d95d3
+
 
 foodSelect.addEventListener('click', (event) => {
     event.preventDefault();

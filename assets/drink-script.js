@@ -1,5 +1,28 @@
-var ingredientSelect = document.getElementById('drink-button');
-var ingredients = document.querySelectorAll('checkbox');
+var foodIngredients = document.querySelectorAll('food-checkbox');
+var drinkIngredients = document.querySelectorAll('drink-checkbox');
+var foodSelect = document.getElementById('food-button');
+var drinkSelect = document.getElementById('drink-button');
+
+
+foodSelect.addEventListener('click', (event) => {
+    event.preventDefault();
+    let checkboxes = document.querySelectorAll('input[name="food-ingredient"]:checked');
+    let output = [];
+    checkboxes.forEach((checkbox) => {
+        output.push(checkbox.value);
+    });
+    console.log(output);
+});
+
+drinkSelect.addEventListener('click', (event) => {
+    event.preventDefault();
+    let checkboxes = document.querySelectorAll('input[name="drink-ingredient"]:checked');
+    let output = [];
+    checkboxes.forEach((checkbox) => {
+        output.push(checkbox.value);
+    });
+    console.log(output);
+});
 
 
 /*function getCocktailDb() {
@@ -18,14 +41,3 @@ var ingredients = document.querySelectorAll('checkbox');
         
     
 }*/
-
-ingredientSelect.addEventListener('click', (event) => {
-    event.preventDefault();
-    let checkboxes = document.querySelectorAll('input[name="drink-ingredient"]:checked');
-    let output = [];
-    checkboxes.forEach((checkbox) => {
-        output.push(checkbox.value);
-    });
-    console.log(output);
-});
-

@@ -83,7 +83,27 @@
                 <div class="search">
                   <p>Select your ingredients:</p>
                   <div class="button-area">
-                    <form class="box">
+                    <div class="select is-multiple">
+                        <select multiple size="8" id="drink-ingredient">
+                          <option value="absinthe" >Absinthe</option>
+                          <option value="brandy" >Brandy</option>
+                          <option value="rum" >Rum</option>
+                          <option value="vodka" >Vodka</option>
+                          <option value="whiskey" >Whiskey</option>
+                          <option value="tequila" >Tequila</option>
+                          <option value="gin" >Gin</option>
+                          <option value="bourbon" >Bourbon</option>
+                          <option value="pineapple" >Pineapple Juice</option>
+                          <option value="white-wine" >White Wine</option>
+                          <option value="red-wine" >Red Wine</option>
+                          <option value="orange-juice" >Orange Juice</option>
+                        </select>
+                        <button id="drink-button" class="button is-rounded has-background-primary has-text-black">Submit</button>
+                    </div>
+                </div>
+
+
+                    <!-- <form class="box">
                       <label for="Brandy" class="drink-checkbox"><input type="checkbox" name="drink-ingredient" value="Brandy" id="Brandy">Brandy</label>
                       <label for="Rum" class="drink-checkbox"><input type="checkbox" name="drink-ingredient" value="Rum" id="Rum">Rum</label>
                       <label for="Vodka" class="drink-checkbox"><input type="checkbox" name="drink-ingredient" value="Vodka" id="Vodka">Vodka</label>
@@ -110,8 +130,9 @@
                       <label for="Chocolate" class="drink-checkbox"><input type="checkbox" name="drink-ingredient" value="Chocolate" id="Chocolate">Chocolate</label>
                       <label for="Vanilla" class="drink-checkbox"><input type="checkbox" name="drink-ingredient" value="Vanilla" id="Vanilla">Vanilla</label>
                       <button id="drink-button" class="button is-rounded has-background-primary has-text-black">Submit</button>
-                    </form>
-                  </div>
+                    </form> -->
+
+                 
                   
                   <!--Results for Drinks-->
                 <div class="columns" id="results-list">

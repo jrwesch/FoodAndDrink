@@ -8,10 +8,12 @@ var apiKey = "&apiKey=9d3356672b70422fa17b1053440d95d3";
 
 foodSelect.addEventListener('click', (event) => {
     event.preventDefault();
+
+    chosenIds = [];
     let checkboxes = document.querySelectorAll('input[name="food-ingredient"]:checked');
     let output = [];
     var foodURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=";
-   // https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,+flour,+sugar&number=2
+  
     checkboxes.forEach((checkbox, index) => {
         if (index == 0) {
             foodURL += checkbox.value;
@@ -20,20 +22,52 @@ foodSelect.addEventListener('click', (event) => {
         }
         output.push(checkbox.value);
     });
+
     foodURL = foodURL + apiKey;
     console.log(foodURL);
     console.log(output);
 
     fetch(foodURL)
-    .then(function(response) {
-        return response.json();
-    }).then(function(data) {
-        console.log(data);
-    });
-    console.log(foodURL);
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            for (i = 0; i < data.length; i++) {
+            chosenIds.push(data[i].id);
+            localStorage.setItem('IDs', JSON.stringify(chosenIds));
+        };
+        
+        console.log(chosenIds);
+        
+    }); 
+    renderSearchButtons();
 });
 
+var chosenRecipes = localStorage.getItem('IDs');
+if (!chosenRecipes) {
+    chosenRecipes = [];
+   } else {
+   chosenRecipes = JSON.parse(chosenRecipes);
+ }
 
+function renderSearchButtons() {
+    document.getElementById('searched-recipes').innerHTML = '';
+    
+    for (let i = 0; i < chosenRecipes.length; i++) { 
+      var newSearchButton = document.createElement('button');
+      newSearchButton.textContent = chosenRecipes[i];
+      newSearchButton.classList.add('button');
+    //   newSearchButton.addEventListener("click", function(){
+    //     city = searchedCities[i];
+        
+    //     getWeatherData(city);
+    //   });
+      document.getElementById('searched-recipes').appendChild(newSearchButton);
+    };
+  };
+  
+  renderSearchButtons();
+  
 
 
 function getCocktailDb() {

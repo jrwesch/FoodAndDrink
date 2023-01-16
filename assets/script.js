@@ -2,6 +2,8 @@ var foodIngredients = document.querySelectorAll('food-checkbox');
 var drinkIngredient = document.getElementById('drink-ingredient');
 var foodSelect = document.getElementById('food-button');
 var drinkSelect = document.getElementById('drink-button');
+var drinkNames = [];
+var drinkIDs =[];
 
 var apiKey = "&apiKey=9d3356672b70422fa17b1053440d95d3";
 var apiKey1 = "?apiKey=9d3356672b70422fa17b1053440d95d3";
@@ -44,7 +46,7 @@ foodSelect.addEventListener('click', (event) => {
         console.log(chosenIds);
         
     }); 
-    renderSearchButtons();
+    //renderSearchButtons();
 });
 
 var chosenNames = localStorage.getItem('Names');
@@ -69,7 +71,6 @@ function renderSearchButtons() {
       newSearchButton.classList.add('button');
       newSearchButton.addEventListener("click", function(){
         console.log(chosenRecipes[i])
-        // window.open('https://api.spoonacular.com/recipes/' + chosenRecipes[i] + '/card' + apiKey1, '_blank')
         menuURL = 'https://api.spoonacular.com/recipes/' + chosenRecipes[i] + '/card' + apiKey1
         fetch(menuURL)
         .then(function(response) {
@@ -89,33 +90,96 @@ function renderSearchButtons() {
   
 
 
-function getCocktailDb() {
+
+
+
+// function getCocktailDb() {
     
+//     console.log(drinkIngredient.value);
+//     var requestUrl = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + drinkIngredient.value;
+    
+    
+//     //returns info from API in an array
+//     fetch(requestUrl)
+//         .then(function(response) {
+//             return response.json();  
+//         })
+//         .then(function(data) {
+//             console.log(data)
+            
+
+//             for (var i = 0; i < data.length; i++) {
+//                 drinkNames.push(data[i].strDrink);
+//                 localStorage.setItem('Drinks', JSON.stringify(drinkNames));
+//             };
+
+//         });
+    
+//         console.log(requestUrl);
+
+    
+    
+// };
+// drinkSelect.addEventListener('click', getCocktailDb);
+
+
+drinkSelect.addEventListener('click', function(event) {
+    event.preventDefault();
+
     console.log(drinkIngredient.value);
     var requestUrl = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + drinkIngredient.value;
-    drinkNames = [];
-    
-    //returns info from API in an array
+    console.log(requestUrl);
+
+
     fetch(requestUrl)
         .then(function(response) {
-            return response.json();  
+            return response.json();
         })
         .then(function(data) {
-            console.log(data)
-            
-            for (var i = 0; i < data.length; i++) {
-                
-                var drinkNames = [];
-                drinkNames.push(data[i].strDrink);
-                localStorage.setItem('Drinks', drinkNames);
-            };
+            console.log(data.drinks);
+            for (var i = 0; i < data.drinks.length; i++) {
+            drinkNames.push(data.drinks[i].strDrink);
+            drinkIDs.push(data.drinks[i].idDrink);
+            localStorage.setItem('Drink ID', JSON.stringify(drinkIDs));
+            localStorage.setItem('Drink Name',JSON.stringify(drinkNames))
+        };
+        
+        console.log(drinkNames);
+        console.log(drinkIDs);
+        
+    }); 
+    renderDrinkButtons();
+});
 
-        });
-    
-        console.log(requestUrl);
+var chosenDrinkIDs = localStorage.getItem('Drink ID');
+if (!chosenDrinkIDs) {
+    chosenDrinkIDs = [];
+   } else {
+   chosenDrinkIDs = JSON.parse(chosenDrinkIDs);
+ }
 
-    
-    
-};
-drinkSelect.addEventListener('click', getCocktailDb);
+ var chosenDrinkNames = localStorage.getItem('Drink Name');
+if (!chosenDrinkNames) {
+    chosenDrinkNames = [];
+   } else {
+   chosenDrinkNames = JSON.parse(chosenDrinkNames);
+ }
 
+function renderDrinkButtons() {
+    document.getElementById('searched-drinks').innerHTML = '';
+    
+    for (let i = 0; i < chosenDrinkNames.length; i++) { 
+      var newSearchButton = document.createElement('button');
+      newSearchButton.textContent = chosenDrinkNames[i];
+      newSearchButton.classList.add('button');
+      newSearchButton.addEventListener("click", function(){
+        console.log(chosenDrinkNames[i])
+        
+        window.open('https://www.thecocktaildb.com/drink/' + chosenDrinkIDs[i],'_blank')
+        
+     });
+      document.getElementById('searched-drinks').appendChild(newSearchButton);
+    };
+  };
+  
+  renderDrinkButtons();

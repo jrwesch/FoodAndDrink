@@ -90,19 +90,31 @@ function renderSearchButtons() {
 
 
 function getCocktailDb() {
+    
     console.log(drinkIngredient.value);
     var requestUrl = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + drinkIngredient.value;
-
+    drinkNames = [];
+    
+    //returns info from API in an array
     fetch(requestUrl)
         .then(function(response) {
-            return response.json();
-           
-        }).then(function(data) {
-            console.log(data);
+            return response.json();  
+        })
+        .then(function(data) {
+            console.log(data)
+            
+            for (var i = 0; i < data.length; i++) {
+                
+                var drinkNames = [];
+                drinkNames.push(data[i].strDrink);
+                localStorage.setItem('Drinks', drinkNames);
+            };
 
         });
     
         console.log(requestUrl);
+
+    
     
 };
 drinkSelect.addEventListener('click', getCocktailDb);

@@ -4,6 +4,7 @@ var foodSelect = document.getElementById('food-button');
 var drinkSelect = document.getElementById('drink-button');
 
 var apiKey = "&apiKey=9d3356672b70422fa17b1053440d95d3";
+var apiKey1 = "?apiKey=9d3356672b70422fa17b1053440d95d3";
 
 
 foodSelect.addEventListener('click', (event) => {
@@ -46,11 +47,11 @@ foodSelect.addEventListener('click', (event) => {
     renderSearchButtons();
 });
 
-var chosen = localStorage.getItem('Names');
-if (!chosen) {
-    chosen = [];
+var chosenNames = localStorage.getItem('Names');
+if (!chosenNames) {
+    chosenNames = [];
    } else {
-   chosen = JSON.parse(chosen);
+   chosenNames = JSON.parse(chosenNames);
  }
 var chosenRecipes = localStorage.getItem('IDs');
 if (!chosenRecipes) {
@@ -62,15 +63,23 @@ if (!chosenRecipes) {
 function renderSearchButtons() {
     document.getElementById('searched-recipes').innerHTML = '';
     
-    for (let i = 0; i < chosen.length; i++) { 
+    for (let i = 0; i < chosenRecipes.length; i++) { 
       var newSearchButton = document.createElement('button');
-      newSearchButton.textContent = chosen[i];
+      newSearchButton.textContent = chosenNames[i];
       newSearchButton.classList.add('button');
-     newSearchButton.addEventListener("click", function(){
+      newSearchButton.addEventListener("click", function(){
         console.log(chosenRecipes[i])
-    // city = searchedCities[i];
-        
-    //     getWeatherData(city);
+        // window.open('https://api.spoonacular.com/recipes/' + chosenRecipes[i] + '/card' + apiKey1, '_blank')
+        menuURL = 'https://api.spoonacular.com/recipes/' + chosenRecipes[i] + '/card' + apiKey1
+        fetch(menuURL)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data)
+            console.log(data.url)
+            window.open(data.url, '_blank')
+        });
      });
       document.getElementById('searched-recipes').appendChild(newSearchButton);
     };

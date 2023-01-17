@@ -6,6 +6,9 @@ var drinkSelect = document.getElementById('drink-button');
 var apiKey = "&apiKey=9d3356672b70422fa17b1053440d95d3";
 var apiKey1 = "?apiKey=9d3356672b70422fa17b1053440d95d3";
 
+//clears local storage so page is fresh when opened
+localStorage.clear();
+
 // food ingredient checkbox submission
 foodSelect.addEventListener('click', (event) => {
     event.preventDefault();

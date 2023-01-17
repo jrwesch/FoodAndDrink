@@ -31,7 +31,6 @@ header p {
     font-weight: bold;
     white-space: nowrap;
     padding-top: 36px;
-    color: #34ff78;
 }
 
 /* ************** main section ************** */
@@ -54,14 +53,6 @@ main {
     width: 48%;
     border-radius: 5px;
     background-color: #ffdd00;
-}
-
-#results-list {
-    padding: 1.25rem;
-}
-
-#drinks-results {
-    padding: 1.25rem;
 }
 
 h2 {
@@ -97,6 +88,29 @@ h2 {
     padding-bottom: 2%;
 }
 
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.select {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.select select {
+    width: 100%;
+}
+
+#results-list {
+    padding: 1.25rem;
+}
+
+#drinks-results {
+    padding: 1.25rem;
+}
+
 #searched-recipes {
     display: flex;
     flex-wrap: wrap;
@@ -116,7 +130,7 @@ footer {
 }
 
 a {
-    color: greenyellow;
+    color: #ffdd00;
     text-decoration: none;
 }
 

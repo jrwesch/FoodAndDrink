@@ -8,7 +8,7 @@ var drinkIDs =[];
 var apiKey = "&apiKey=9d3356672b70422fa17b1053440d95d3";
 var apiKey1 = "?apiKey=9d3356672b70422fa17b1053440d95d3";
 
-
+// food ingredient checkbox submission
 foodSelect.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -41,28 +41,26 @@ foodSelect.addEventListener('click', (event) => {
             chosenNames.push(data[i].title);
             localStorage.setItem('IDs', JSON.stringify(chosenIds));
             localStorage.setItem('Names', JSON.stringify(chosenNames));
+            renderSearchButtons();
         };
-        
         console.log(chosenIds);
-        
     }); 
-    //renderSearchButtons();
 });
 
-var chosenNames = localStorage.getItem('Names');
-if (!chosenNames) {
-    chosenNames = [];
-   } else {
-   chosenNames = JSON.parse(chosenNames);
- }
-var chosenRecipes = localStorage.getItem('IDs');
-if (!chosenRecipes) {
-    chosenRecipes = [];
-   } else {
-   chosenRecipes = JSON.parse(chosenRecipes);
- }
-
+// gets chosen recipes from local storage and renders searched recipe results buttons
 function renderSearchButtons() {
+    var chosenNames = localStorage.getItem('Names');
+    if (!chosenNames) {
+        chosenNames = [];
+    } else {
+        chosenNames = JSON.parse(chosenNames);
+    }
+    var chosenRecipes = localStorage.getItem('IDs');
+    if (!chosenRecipes) {
+        chosenRecipes = [];
+    } else {
+        chosenRecipes = JSON.parse(chosenRecipes);
+    }
     document.getElementById('searched-recipes').innerHTML = '';
     
     for (let i = 0; i < chosenRecipes.length; i++) { 
@@ -85,7 +83,6 @@ function renderSearchButtons() {
       document.getElementById('searched-recipes').appendChild(newSearchButton);
     };
   };
-  
   renderSearchButtons();
   
 

@@ -11,7 +11,7 @@ For this project we used HTML, CSS with Bulma framework, JavaScript, and two API
 ## Site Preview
 
 ![Screenshot of Food And Drink Recipe Finder](./assets/images/preview-blank.png)
-![Screenshot of Food and Drink Recipe Finder with buttons present](./asets/images/preview-buttons.png)
+![Screenshot of Food and Drink Recipe Finder with buttons present](./assets/images/preview-buttons.png)
 
 ## Usage
 

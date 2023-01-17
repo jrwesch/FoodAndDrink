@@ -2,12 +2,13 @@ var foodIngredients = document.querySelectorAll('food-checkbox');
 var drinkIngredient = document.getElementById('drink-ingredient');
 var foodSelect = document.getElementById('food-button');
 var drinkSelect = document.getElementById('drink-button');
+var foodRefresh = document.getElementById('food-refresh');
+var drinkRefresh = document.getElementById('drink-refresh');
 
 var apiKey = "&apiKey=9d3356672b70422fa17b1053440d95d3";
 var apiKey1 = "?apiKey=9d3356672b70422fa17b1053440d95d3";
 
-//clears local storage so page is fresh when opened
-localStorage.clear();
+
 
 // food ingredient checkbox submission
 foodSelect.addEventListener('click', (event) => {
@@ -145,3 +146,16 @@ function renderDrinkButtons() {
     };
   };
   renderDrinkButtons();
+
+  // Refresh buttons to clear choices individually for Food and Drink
+foodRefresh.addEventListener('click', (event) => {
+    localStorage.removeItem('IDs');
+    localStorage.removeItem('Names');
+    renderSearchButtons();
+});
+
+drinkRefresh.addEventListener('click', (event) => {
+    localStorage.removeItem('Drink ID');
+    localStorage.removeItem('Drink Name');
+    renderDrinkButtons();
+});

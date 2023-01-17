@@ -60,7 +60,11 @@ main {
 #results-list {
     margin-left: 2%;
     margin-right: 5%;
-    
+}
+
+#drinks-results {
+    margin-left: 2%;
+    margin-right: 5%;
 }
 
 h2 {

@@ -2,8 +2,6 @@ var foodIngredients = document.querySelectorAll('food-checkbox');
 var drinkIngredient = document.getElementById('drink-ingredient');
 var foodSelect = document.getElementById('food-button');
 var drinkSelect = document.getElementById('drink-button');
-var drinkNames = [];
-var drinkIDs =[];
 
 var apiKey = "&apiKey=9d3356672b70422fa17b1053440d95d3";
 var apiKey1 = "?apiKey=9d3356672b70422fa17b1053440d95d3";
@@ -47,7 +45,7 @@ foodSelect.addEventListener('click', (event) => {
     }); 
 });
 
-// gets chosen recipes from local storage and renders searched recipe results buttons
+// gets chosen food recipes from local storage and renders searched recipe results buttons
 function renderSearchButtons() {
     var chosenNames = localStorage.getItem('Names');
     if (!chosenNames) {
@@ -87,42 +85,12 @@ function renderSearchButtons() {
   
 
 
-
-
-
-// function getCocktailDb() {
-    
-//     console.log(drinkIngredient.value);
-//     var requestUrl = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + drinkIngredient.value;
-    
-    
-//     //returns info from API in an array
-//     fetch(requestUrl)
-//         .then(function(response) {
-//             return response.json();  
-//         })
-//         .then(function(data) {
-//             console.log(data)
-            
-
-//             for (var i = 0; i < data.length; i++) {
-//                 drinkNames.push(data[i].strDrink);
-//                 localStorage.setItem('Drinks', JSON.stringify(drinkNames));
-//             };
-
-//         });
-    
-//         console.log(requestUrl);
-
-    
-    
-// };
-// drinkSelect.addEventListener('click', getCocktailDb);
-
-
+// drink ingredient submission
 drinkSelect.addEventListener('click', function(event) {
     event.preventDefault();
 
+    var drinkIDs =[];
+    var drinkNames = [];
     console.log(drinkIngredient.value);
     var requestUrl = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + drinkIngredient.value;
     console.log(requestUrl);
@@ -138,31 +106,28 @@ drinkSelect.addEventListener('click', function(event) {
             drinkNames.push(data.drinks[i].strDrink);
             drinkIDs.push(data.drinks[i].idDrink);
             localStorage.setItem('Drink ID', JSON.stringify(drinkIDs));
-            localStorage.setItem('Drink Name',JSON.stringify(drinkNames))
+            localStorage.setItem('Drink Name',JSON.stringify(drinkNames));
+            renderDrinkButtons();
         };
-        
         console.log(drinkNames);
         console.log(drinkIDs);
-        
-    }); 
-    renderDrinkButtons();
+    });   
 });
 
-var chosenDrinkIDs = localStorage.getItem('Drink ID');
-if (!chosenDrinkIDs) {
-    chosenDrinkIDs = [];
-   } else {
-   chosenDrinkIDs = JSON.parse(chosenDrinkIDs);
- }
-
- var chosenDrinkNames = localStorage.getItem('Drink Name');
-if (!chosenDrinkNames) {
-    chosenDrinkNames = [];
-   } else {
-   chosenDrinkNames = JSON.parse(chosenDrinkNames);
- }
-
+// gets chosen drink recipes from local storage and renders results buttons
 function renderDrinkButtons() {
+    var chosenDrinkIDs = localStorage.getItem('Drink ID');
+    if (!chosenDrinkIDs) {
+        chosenDrinkIDs = [];
+    } else {
+        chosenDrinkIDs = JSON.parse(chosenDrinkIDs);
+    }
+    var chosenDrinkNames = localStorage.getItem('Drink Name');
+    if (!chosenDrinkNames) {
+        chosenDrinkNames = [];
+    } else {
+        chosenDrinkNames = JSON.parse(chosenDrinkNames);
+    }
     document.getElementById('searched-drinks').innerHTML = '';
     
     for (let i = 0; i < chosenDrinkNames.length; i++) { 
@@ -171,12 +136,9 @@ function renderDrinkButtons() {
       newSearchButton.classList.add('button');
       newSearchButton.addEventListener("click", function(){
         console.log(chosenDrinkNames[i])
-        
         window.open('https://www.thecocktaildb.com/drink/' + chosenDrinkIDs[i],'_blank')
-        
      });
       document.getElementById('searched-drinks').appendChild(newSearchButton);
     };
   };
-  
   renderDrinkButtons();

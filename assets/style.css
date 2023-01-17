@@ -90,11 +90,23 @@ h2 {
 
 .button-area {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding-left: 2%;
     padding-right: 2%;
     padding-bottom: 2%;
+}
+
+#searched-recipes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#searched-drinks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* ************** footer section styling ************** */

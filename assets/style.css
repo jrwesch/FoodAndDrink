@@ -66,6 +66,10 @@ h2 {
     width: 100%;
 }
 
+.food-checkbox {
+    font-size: 1.25rem;
+}
+
 .search {
     display: flex;
     flex-direction: column;
@@ -101,6 +105,7 @@ h2 {
 
 .select select {
     width: 100%;
+    font-size: 1.25rem;
 }
 
 #results-list {

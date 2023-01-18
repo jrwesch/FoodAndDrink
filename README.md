@@ -8,6 +8,12 @@ We chose to create an app that would search for and return recipes based on a us
 
 For this project we used HTML, CSS with Bulma framework, JavaScript, and two APIs. One API used a full key while the other used a simple test key. There are no alerts, confirms, or prompts. 
 
+The user story for this project is:
+
+As a ... home cook
+I want ... to find recipes for meals and drinks using ingredients I already have
+So that ... I don't have to order out or go to the store
+
 ## Site Preview
 
 ![Screenshot of Food And Drink Recipe Finder](./assets/images/preview-blank.png)

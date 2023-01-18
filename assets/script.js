@@ -143,7 +143,7 @@ function renderDrinkButtons() {
   };
   renderDrinkButtons();
 
-// Refresh buttons to clear choices individually for Food and Drink
+// Refreshes buttons to clear choices individually for Food and Drink
 foodRefresh.addEventListener('click', (event) => {
     localStorage.removeItem('IDs');
     localStorage.removeItem('Names');

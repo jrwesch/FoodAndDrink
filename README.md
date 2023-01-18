@@ -10,9 +10,9 @@ For this project we used HTML, CSS with Bulma framework, JavaScript, and two API
 
 The user story for this project is:
 
-As a ... home cook
-I want ... to find recipes for meals and drinks using ingredients I already have
-So that ... I don't have to order out or go to the store
+As a ... home cook</br>
+I want ... to find recipes for meals and drinks using ingredients I already have</br>
+So that ... I don't have to order out or go to the store</br>
 
 ## Site Preview
 

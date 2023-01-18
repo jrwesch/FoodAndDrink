@@ -143,10 +143,20 @@ function renderDrinkButtons() {
   };
   renderDrinkButtons();
 
-// Refresh buttons to clear choices individually for Food and Drink
-foodRefresh.addEventListener('click', (event) => {
+
+  // Refresh buttons to clear choices individually for Food and Drink
+  
+  foodRefresh.addEventListener('click', (event) => {
     localStorage.removeItem('IDs');
     localStorage.removeItem('Names');
+    
+    function uncheckAll() { 
+        var inputs = document.querySelectorAll('input[name="food-ingredient"]:checked'); 
+        for (var i = 0; i < inputs.length; i++) { 
+            inputs[i].checked = false; 
+        };
+    };
+    uncheckAll();
     renderSearchButtons();
 });
 

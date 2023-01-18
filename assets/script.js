@@ -8,8 +8,6 @@ var drinkRefresh = document.getElementById('drink-refresh');
 var apiKey = "&apiKey=9d3356672b70422fa17b1053440d95d3";
 var apiKey1 = "?apiKey=9d3356672b70422fa17b1053440d95d3";
 
-
-
 // food ingredient checkbox submission
 foodSelect.addEventListener('click', (event) => {
     event.preventDefault();
@@ -68,7 +66,7 @@ function renderSearchButtons() {
     for (let i = 0; i < chosenRecipes.length; i++) { 
       var newSearchButton = document.createElement('button');
       newSearchButton.textContent = chosenNames[i];
-      newSearchButton.classList.add('button');
+      newSearchButton.classList.add('button','is-info','is-light','has-text-weight-semibold','is-fullwidth','is-rounded');
       newSearchButton.addEventListener("click", function(){
         console.log(chosenRecipes[i])
         menuURL = 'https://api.spoonacular.com/recipes/' + chosenRecipes[i] + '/card' + apiKey1
@@ -87,8 +85,6 @@ function renderSearchButtons() {
   };
   renderSearchButtons();
   
-
-
 // drink ingredient submission
 drinkSelect.addEventListener('click', function(event) {
     event.preventDefault();
@@ -137,7 +133,7 @@ function renderDrinkButtons() {
     for (let i = 0; i < chosenDrinkNames.length; i++) { 
       var newSearchButton = document.createElement('button');
       newSearchButton.textContent = chosenDrinkNames[i];
-      newSearchButton.classList.add('button');
+      newSearchButton.classList.add('button','is-info','is-light','has-text-weight-semibold','is-fullwidth','is-rounded');
       newSearchButton.addEventListener("click", function(){
         console.log(chosenDrinkNames[i])
         window.open('https://www.thecocktaildb.com/drink/' + chosenDrinkIDs[i],'_blank')
@@ -146,6 +142,7 @@ function renderDrinkButtons() {
     };
   };
   renderDrinkButtons();
+
 
   // Refresh buttons to clear choices individually for Food and Drink
   
